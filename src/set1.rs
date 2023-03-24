@@ -4,45 +4,47 @@ use std::{io, cmp::Ordering};
 use rand::{Rng, thread_rng};
 
 pub fn main() {
-    z5();
+    println!("Which exercise to open?");
+    let x = input_int();
+    match x
+    {
+        1 => z1(),
+        2 => z2(),
+        3 => z3(),
+        4 => z4(),
+        5 => z5(),
+        _ => println!("Wrong number")
+    
+    };
 }
 
 fn z1(){
-    let mut celc = String::new();
     println!("Prosze podac temperature w Celsjuszach");
-    io::stdin().read_line(&mut celc);
-    let fare: f32 = celc.trim_end().parse::<f32>().expect("Niepoprawna liczba") * 1.8 + 32.0;
-    println!("{} Celsjusza to {} Farenheita", celc, fare);
+    let cels = input_float();
+    println!("{} Celsjusza to {} Farenheita", cels, cels*1.8 +32.0);
 }
 
 fn z2() {
     let mut min = i32::MAX;
     let mut max = i32::MIN;
-    let mut var = String::new();
-    let mut parsed:i32;
+    let mut var:i32;
     println!("Prosze podac 3 liczby");
     for i in 0..3{
-        var.clear();
-        io::stdin().read_line(&mut var);
-        parsed = var.trim_end().parse().expect("Bledny ciag");
-        if parsed > max {
-            max = parsed;
-        }else if parsed < min {
-            min = parsed;
+        var = input_int();
+        if var > max {
+            max = var;
+        }else if var < min {
+            min = var;
         }
     }
     println!("Max to {}, Min to {}", max, min);
 }
 
 fn z3() {
-    let mut var = String::new();
     println!("Prosze podac wage(kg): ");
-    io::stdin().read_line(&mut var);
-    let mut waga: f32 = var.trim_end().parse().expect("Bledny ciag");
-    var.clear();
-    io::stdin().read_line(&mut var);
+    let waga: f32 = input_float();
     println!("Prosze podac wzrost(m)");
-    let mut wzrost: f32 = var.trim_end().parse().expect("Bledny ciag");
+    let mut wzrost: f32 = input_float();
     let mut bmi = waga/(wzrost*wzrost);
     if bmi < 18.5 {
         println!("Bmi wynosi {}, masz niedowage", bmi);
@@ -56,9 +58,7 @@ fn z3() {
 
 fn z4() {
     println!("Prosze podac dochod");
-    let mut var = String::new();
-    io::stdin().read_line(&mut var);
-    let mut dochod: f64 = var.trim_end().parse().expect("Bledny znak");
+    let mut dochod: f32 = input_float();
     match dochod {
     0.0..=30_000.0 => println!("Twoj dochod wynosi {}zl, a podatek 0zl", dochod),
     30_000.0..=120_000.0 => println!("Twoj dochod wynosi {}zl, a podatek {}zl", dochod, (dochod*17.0) / 100.0 - 5100.0 ),
@@ -70,12 +70,9 @@ fn z4() {
 fn z5() {
     let x = rand::thread_rng().gen_range(1..101);
     let mut y = 0; 
-    let mut var = String::new();
     while x != y {
         println!("Prosze poddac liczbe");
-        io::stdin().read_line(&mut var);
-        y = var.trim_end().parse().expect("Zly znak");
-        var.clear();
+        y = input_int();
         if x > y {
             println!("Za mala liczba");
         }else if x < y {
@@ -83,4 +80,29 @@ fn z5() {
         }
     }
     println!("Wygrales, poprawna liczba to {}", x)
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+fn input_int() -> i32
+{
+    let mut str = String::new();
+    io::stdin().read_line(&mut str);
+    let x = str.trim_end().parse::<i32>().expect("Niepoprawna liczba");
+    return x;
+}
+
+fn input_str() -> String
+{
+    let mut str = String::new();
+    io::stdin().read_line(&mut str).expect("Wystapil blad");
+    return str;
+}
+
+fn input_float() -> f32
+{
+    let mut str = String::new();
+    io::stdin().read_line(&mut str);
+    let x = str.trim_end().parse::<f32>().expect("Niepoprawna liczba");
+    return x;
 }

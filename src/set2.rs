@@ -5,7 +5,17 @@ use std::{io, cmp::Ordering};
 //zestaw 2
 
 pub fn main() {
-    z4();
+    println!("Which exercise to open?");
+    let x = input_int();
+    match x
+    {
+        1 => z1(),
+        2 => z2(),
+        3 => z3(),
+        4 => z4(),
+        _ => println!("Wrong number")
+    
+    };
 }
 
 //zadania
@@ -83,7 +93,7 @@ fn z3()
     }
     println!("Poprawne zakonczenie programu");
     
-} 
+}
 
 pub fn z4()
 {
