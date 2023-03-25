@@ -3,6 +3,7 @@
 use std::{io, cmp::Ordering};
 use rand::{Rng, thread_rng};
 
+
 pub fn start() {
     println!("Which exercise to open?");
     let x = input_int();

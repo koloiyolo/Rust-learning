@@ -2,6 +2,7 @@
 
 use std::{io, cmp::Ordering};
 
+
 //zestaw 2
 
 pub fn start() {
@@ -86,8 +87,6 @@ fn z3()
             4 => println!("{} / {} = {}", a, b, a / b),
             _ => println!("Wrong number")
         }
-        
-        println!("Do you wish to exit? 1/0");
         znak = input_int();
         if znak == 0 {exit = true;}
     }
@@ -117,19 +116,27 @@ fn z4()
     
 }
 
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 fn input_int() -> i32
 {
     let mut str = String::new();
     io::stdin().read_line(&mut str);
-    let x = str.trim_end().parse::<i32>().expect("Niepoprawna liczba");
+    let x = str.trim_end().parse::<i32>().expect("Wrong number");
     return x;
 }
 
 fn input_str() -> String
 {
     let mut str = String::new();
-    io::stdin().read_line(&mut str).expect("Wystapil blad");
+    io::stdin().read_line(&mut str).expect("There was an error");
     return str;
+}
+
+fn input_float() -> f32
+{
+    let mut str = String::new();
+    io::stdin().read_line(&mut str);
+    let x = str.trim_end().parse::<f32>().expect("Niepoprawna liczba");
+    return x;
 }
