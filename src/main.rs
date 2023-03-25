@@ -2,6 +2,7 @@
 use std::{io};
 mod set1;
 mod set2;
+mod set3;
 mod basic;
 
 fn main() 
@@ -12,6 +13,7 @@ fn main()
     {
         1 => set1::start(),
         2 => set2::start(),
+        3 => set3::start(),
         _ => println!("Wrong number")
     
     };
