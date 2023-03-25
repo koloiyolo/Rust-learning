@@ -1,6 +1,6 @@
 #![allow(unused)]
 
-use std::{io, cmp::Ordering, };
+use std::{io, vec, cmp::Ordering, };
 
 //zestaw 2
 
@@ -20,7 +20,7 @@ pub fn start() {
 
 fn z1()
 {
-    let arr = [4.2, 5.7, 3.3, 7.7, -1.0, 1.8, 6.6, 1.5, 2.2, 7.9, -6.1, 4.3, 6.3, 3.3,
+    let mut arr = [4.2, 5.7, 3.3, 7.7, -1.0, 1.8, 6.6, 1.5, 2.2, 7.9, -6.1, 4.3, 6.3, 3.3,
     3.2, 7.0, 2.9, 4.2, 4.8, 4.7];
     let mut total = 0.0;
     let mut min = f64::MAX;
@@ -49,13 +49,29 @@ fn z1()
 
     println!("Standard deviation = {:.5}", standard_deviation.sqrt());
     
-    //float sort
+    //float sort xD
+    let mut arr2: [i32; 20]= [0; 20];
+    for i in 0.. arr.len() {
+        arr2[i]= (arr[i]*10.0) as i32;
+    }
+    arr2.sort();
+    let mut j =0;
+    for i in 0..arr.len(){
+        arr[i]=arr2[19-j] as f64;
+        arr[i] /= 10.0;
+        j+=1;
+    }
+
     println!("Sorted array: ");
     for i in 0..arr.len(){
         print!(" {}*C, ", arr[i])
     }
 }
 
+// fn z2()
+// {
+    
+// }
 
 
 
