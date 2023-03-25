@@ -19,16 +19,16 @@ pub fn start() {
 }
 
 fn z1(){
-    println!("Prosze podac temperature w Celsjuszach");
+    println!("Please enter the temperature in Celsius");
     let cels = input_float();
-    println!("{} Celsjusza to {} Farenheita", cels, cels*1.8 +32.0);
+    println!("{} Celsius is {} Farenheit", cels, cels*1.8 +32.0);
 }
 
 fn z2() {
     let mut min = i32::MAX;
     let mut max = i32::MIN;
     let mut var:i32;
-    println!("Prosze podac 3 liczby");
+    println!("Please input 3 numbers");
     for i in 0..3{
         var = input_int();
         if var > max {
@@ -37,33 +37,33 @@ fn z2() {
             min = var;
         }
     }
-    println!("Max to {}, Min to {}", max, min);
+    println!("Max is {}, Min is {}", max, min);
 }
 
 fn z3() {
-    println!("Prosze podac wage(kg): ");
+    println!("Please input your weight(kg): ");
     let waga: f32 = input_float();
-    println!("Prosze podac wzrost(m)");
+    println!("Please input your height(m): ");
     let mut wzrost: f32 = input_float();
     let mut bmi = waga/(wzrost*wzrost);
     if bmi < 18.5 {
-        println!("Bmi wynosi {}, masz niedowage", bmi);
+        println!("Your BMI is {}, you are underweight", bmi);
     } else if bmi < 25.0 {
-        println!("Bmi wynosi {}", bmi);
+        println!("Your BMI is {}", bmi);
     } else {
-        println!("Bmi wynosi {}, masz nadwage", bmi);
+        println!("Your BMI is {}, you are overweight", bmi);
     }
     
 }
 
 fn z4() {
-    println!("Prosze podac dochod");
-    let mut dochod: f32 = input_float();
-    match dochod {
-    0.0..=30_000.0 => println!("Twoj dochod wynosi {}zl, a podatek 0zl", dochod),
-    30_000.0..=120_000.0 => println!("Twoj dochod wynosi {}zl, a podatek {}zl", dochod, (dochod*17.0) / 100.0 - 5100.0 ),
-    120_000.0.. => println!("Twoj dochod wynosi {}zl, a podatek {}zl", dochod, ((dochod-120_000.0)*32.0) / 100.0 + 15300.0 ),
-    _ => println!("Bledne dane")
+    println!("Please input your yearly salary: ");
+    let mut income: f32 = input_float();
+    match income {
+    0.0..=30_000.0 => println!("Your income is {} PLN, and tax is 0 PLN", income),
+    30_000.0..=120_000.0 => println!("Your income is {} PLN, and tax is {} PLN", income, (income*17.0) / 100.0 - 5100.0 ),
+    120_000.0.. => println!("Your income is {} PLN, and tax is {} PLN", income, ((income-120_000.0)*32.0) / 100.0 + 15300.0 ),
+    _ => println!("Wrong data")
     }
 }
 
@@ -71,15 +71,15 @@ fn z5() {
     let x = rand::thread_rng().gen_range(1..101);
     let mut y = 0; 
     while x != y {
-        println!("Prosze poddac liczbe");
+        println!("Input your chosen number please: ");
         y = input_int();
         if x > y {
-            println!("Za mala liczba");
+            println!("Number too low");
         }else if x < y {
-            println!("Zbyt duza liczba");
+            println!("Number too high");
         }
     }
-    println!("Wygrales, poprawna liczba to {}", x)
+    println!("You won, that's the correct answer {}", x)
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -88,14 +88,14 @@ fn input_int() -> i32
 {
     let mut str = String::new();
     io::stdin().read_line(&mut str);
-    let x = str.trim_end().parse::<i32>().expect("Niepoprawna liczba");
+    let x = str.trim_end().parse::<i32>().expect("Wrong number");
     return x;
 }
 
 fn input_str() -> String
 {
     let mut str = String::new();
-    io::stdin().read_line(&mut str).expect("Wystapil blad");
+    io::stdin().read_line(&mut str).expect("There was an error");
     return str;
 }
 
