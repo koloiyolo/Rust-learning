@@ -9,8 +9,8 @@ fn main()
     let x = input_int();
     match x
     {
-        1 => set1::main(),
-        2 => set2::main(),
+        1 => set1::start(),
+        2 => set2::start(),
         _ => println!("Wrong number")
     
     };

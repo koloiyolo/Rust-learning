@@ -4,7 +4,7 @@ use std::{io, cmp::Ordering};
 
 //zestaw 2
 
-pub fn main() {
+pub fn start() {
     println!("Which exercise to open?");
     let x = input_int();
     match x
