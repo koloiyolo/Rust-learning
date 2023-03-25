@@ -10,7 +10,7 @@ pub fn start() {
     match x
     {
         1 => z1(),
-        // 2 => z2(),
+        2 => z2(),
         // 3 => z3(),
         // 4 => z4(),
         _ => println!("Wrong number")
@@ -68,10 +68,30 @@ fn z1()
     }
 }
 
-// fn z2()
-// {
-    
-// }
+fn z2()
+{
+    let mut columns = [0;4];
+    let mut rows = [0;4];
+    let mut arr = vec![vec![0; 4];4];
+    for i in 0..4 {
+        for j in 0..4{
+            arr[i][j]=input_int();
+        }
+    }
+    println!("\n\n\n");
+    for i in 0..4 {
+        for j in 0..4{
+            print!("{}, ", arr[i][j]);
+            rows[i]+=arr[i][j];
+            columns[j]+=arr[i][j];
+        }
+        println!();
+    }
+    for i in 0..4{
+        println!("Total of column {} is {} and of row {} is {}", i+1, columns[i], i+1, rows[i]);
+    }
+
+}
 
 
 
