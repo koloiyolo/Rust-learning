@@ -1,7 +1,6 @@
 #![allow(unused)]
 
 use std::{io, cmp::Ordering};
-
 //zestaw 2
 
 pub fn start() {
