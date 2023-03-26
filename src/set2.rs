@@ -70,24 +70,23 @@ fn z3()
     println!("Hey, I am a calculator");
     let mut a= 0;
     let mut b = 0;
-    let mut znak;
     let mut exit = false;
     while !exit {
         println!("Input your first number please");
         a = input_int();
         println!("Input your operator please: \n1. -, \n2. +, \n3. *,\n4. / ");
-        znak = input_int();
+        let znak = input_str();
         println!("Input second number please");
         b = input_int();
-        match znak{
-            1 => println!("{} - {} = {}", a, b, a - b),
-            2 => println!("{} + {} = {}", a, b, a + b),
-            3 => println!("{} * {} = {}", a, b, a * b),
-            4 => println!("{} / {} = {}", a, b, a / b),
+        match znak.trim_end(){
+            "-" => println!("{} - {} = {}", a, b, a - b),
+            "+" => println!("{} + {} = {}", a, b, a + b),
+            "*" => println!("{} * {} = {}", a, b, a * b),
+            "/" => println!("{} / {} = {}", a, b, a / b),
             _ => println!("Wrong number")
         }
-        znak = input_int();
-        if znak == 0 {exit = true;}
+        let znak = input_str();
+        if znak.trim_end() == "t" {exit = true;}
     }
     println!("Exited succesfully");
     

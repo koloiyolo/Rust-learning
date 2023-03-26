@@ -1,5 +1,7 @@
 #![allow(unused)]
 use std::{io};
+
+use crate::basic::input_str;
 mod set1;
 mod set2;
 mod set3;
@@ -14,6 +16,7 @@ fn main()
         1 => set1::start(),
         2 => set2::start(),
         3 => set3::start(),
+        4 => println!("X{}X", input_str().trim_end()),
         _ => println!("Wrong number")
     
     };
