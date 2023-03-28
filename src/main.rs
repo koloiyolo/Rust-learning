@@ -6,6 +6,7 @@ mod set1;
 mod set2;
 mod set3;
 mod set4;
+mod set5;
 mod basic;
 
 fn main() 
@@ -18,7 +19,7 @@ fn main()
         2 => set2::start(),
         3 => set3::start(),
         4 => set4::start(),
-        10 => println!("X{}X", input_str().trim_end()),
+        5 => set5::start(),
         _ => println!("Wrong number")
     
     };
