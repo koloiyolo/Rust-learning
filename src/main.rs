@@ -7,6 +7,7 @@ mod set2;
 mod set3;
 mod set4;
 mod set5;
+mod primitives;
 mod basic;
 
 fn main() 
@@ -20,6 +21,7 @@ fn main()
         3 => set3::start(),
         4 => set4::start(),
         5 => set5::start(),
+        6 => primitives::primitives_start(),
         _ => println!("Wrong number")
     
     };
